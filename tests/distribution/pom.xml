@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2016, WSO2 Inc. (http://wso2.com) All Rights Reserved.
+  ~ Copyright (c) 2016, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,15 +19,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>org.wso2.carbon.identity.inbound.provisioning</groupId>
-        <artifactId>org.wso2.carbon.identity.inbound.provisioning.parent</artifactId>
+        <groupId>org.wso2.carbon.identity.inbound.provisioning.scim2</groupId>
+        <artifactId>org.wso2.carbon.identity.inbound.provisioning.scim2.parent</artifactId>
         <relativePath>../../pom.xml</relativePath>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>org.wso2.carbon.identity.test.distribution</artifactId>
+    <artifactId>org.wso2.carbon.identity.inbound.provisioning.scim2.distribution</artifactId>
     <name>WSO2 Carbon Identity User Mgt Tests - Distribution</name>
     <url>http://maven.apache.org</url>
     <packaging>pom</packaging>
@@ -58,7 +58,6 @@
         <dependency>
             <groupId>org.wso2.carbon.caching</groupId>
             <artifactId>org.wso2.carbon.caching.feature</artifactId>
-            <version>${org.wso2.carbon.caching.version}</version>
             <type>zip</type>
         </dependency>
         <!--<dependency>-->
@@ -98,15 +97,13 @@
             <type>zip</type>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon.identity.inbound.provisioning</groupId>
-            <artifactId>org.wso2.carbon.identity.scim.common.feature</artifactId>
-            <version>${carbon.identity.inbound.provisioning.version}</version>
+            <groupId>org.wso2.carbon.identity.inbound.provisioning.scim2</groupId>
+            <artifactId>org.wso2.carbon.identity.inbound.provisioning.scim2.common.feature</artifactId>
             <type>zip</type>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon.identity.inbound.provisioning</groupId>
-            <artifactId>org.wso2.carbon.identity.scim.provider.feature</artifactId>
-            <version>${carbon.identity.inbound.provisioning.version}</version>
+            <groupId>org.wso2.carbon.identity.inbound.provisioning.scim2</groupId>
+            <artifactId>org.wso2.carbon.identity.inbound.provisioning.scim2.provider.feature</artifactId>
             <type>zip</type>
         </dependency>
         <dependency>
@@ -114,39 +111,33 @@
             <artifactId>h2</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.wso2.carbon.metrics</groupId>
-            <artifactId>org.wso2.carbon.metrics.core.feature</artifactId>
-            <version>${carbon.metrics.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.metrics</groupId>
-            <artifactId>org.wso2.carbon.metrics.jdbc.core.feature</artifactId>
-            <version>${carbon.metrics.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>org.wso2.carbon.metrics</groupId>
-            <artifactId>org.wso2.carbon.metrics.das.core.feature</artifactId>
-            <version>${carbon.metrics.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
             <groupId>org.wso2.carbon.transport</groupId>
             <artifactId>org.wso2.carbon.transport.http.netty.feature</artifactId>
-            <version>${carbon.transport.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon.messaging</groupId>
             <artifactId>org.wso2.carbon.messaging.feature</artifactId>
-            <version>${carbon.messaging.version}</version>
             <type>zip</type>
         </dependency>
         <dependency>
             <groupId>org.wso2.msf4j</groupId>
             <artifactId>org.wso2.msf4j.feature</artifactId>
-            <version>${wso2.msf4j.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.metrics</groupId>
+            <artifactId>org.wso2.carbon.metrics.core.feature</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.metrics</groupId>
+            <artifactId>org.wso2.carbon.metrics.jdbc.core.feature</artifactId>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.metrics</groupId>
+            <artifactId>org.wso2.carbon.metrics.das.core.feature</artifactId>
             <type>zip</type>
         </dependency>
     </dependencies>
@@ -300,12 +291,24 @@
                                     <version>${org.wso2.carbon.identity.mgt.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.identity.scim.common.feature</id>
-                                    <version>${carbon.identity.inbound.provisioning.version}</version>
+                                    <id>org.wso2.carbon.identity.inbound.provisioning.scim2.common.feature</id>
+                                    <version>${org.wso2.carbon.identity.inbound.provisioning.scim2.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.identity.scim.provider.feature</id>
-                                    <version>${carbon.identity.inbound.provisioning.version}</version>
+                                    <id>org.wso2.carbon.identity.inbound.provisioning.scim2.provider.feature</id>
+                                    <version>${org.wso2.carbon.identity.inbound.provisioning.scim2.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.transport.http.netty.feature</id>
+                                    <version>${carbon.transport.http.netty.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.messaging.feature</id>
+                                    <version>${carbon.messaging.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.msf4j.feature</id>
+                                    <version>${msf4j.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.metrics.core.feature</id>
@@ -318,18 +321,6 @@
                                 <feature>
                                     <id>org.wso2.carbon.metrics.das.core.feature</id>
                                     <version>${carbon.metrics.version}</version>
-                                </feature>
-                                <feature>
-                                    <id>org.wso2.carbon.transport.http.netty.feature</id>
-                                    <version>${carbon.transport.version}</version>
-                                </feature>
-                                <feature>
-                                    <id>org.wso2.carbon.messaging.feature</id>
-                                    <version>${carbon.messaging.version}</version>
-                                </feature>
-                                <feature>
-                                    <id>org.wso2.msf4j.feature</id>
-                                    <version>${wso2.msf4j.version}</version>
                                 </feature>
                             </features>
                         </configuration>
@@ -412,13 +403,14 @@
                                     <id>org.wso2.carbon.identity.mgt.feature</id>
                                     <version>${org.wso2.carbon.identity.mgt.version}</version>
                                 </feature>
+
                                 <feature>
-                                    <id>org.wso2.carbon.identity.scim.common.feature</id>
-                                    <version>${carbon.identity.inbound.provisioning.version}</version>
+                                    <id>org.wso2.carbon.messaging.feature</id>
+                                    <version>${carbon.messaging.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.identity.scim.provider.feature</id>
-                                    <version>${carbon.identity.inbound.provisioning.version}</version>
+                                    <id>org.wso2.msf4j.feature</id>
+                                    <version>${msf4j.version}</version>
                                 </feature>
                                 <feature>
                                     <id>org.wso2.carbon.metrics.core.feature</id>
@@ -433,12 +425,12 @@
                                     <version>${carbon.metrics.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.messaging.feature</id>
-                                    <version>${carbon.messaging.version}</version>
+                                    <id>org.wso2.carbon.identity.inbound.provisioning.scim2.common.feature</id>
+                                    <version>${org.wso2.carbon.identity.inbound.provisioning.scim2.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.msf4j.feature</id>
-                                    <version>${wso2.msf4j.version}</version>
+                                    <id>org.wso2.carbon.identity.inbound.provisioning.scim2.provider.feature</id>
+                                    <version>${org.wso2.carbon.identity.inbound.provisioning.scim2.version}</version>
                                 </feature>
                             </features>
                         </configuration>
