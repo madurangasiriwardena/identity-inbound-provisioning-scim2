@@ -43,14 +43,18 @@ import java.util.Map;
  */
 public class SCIMConfigProcessor {
 
-    private static SCIMConfigProcessor scimConfigProcessor = new SCIMConfigProcessor();
+    private static final SCIMConfigProcessor scimConfigProcessor = new SCIMConfigProcessor();
 
     //map to keep the properties values
-    Map<String, String> properties = new HashMap<String, String>();
+    Map<String, String> properties = new HashMap<>();
     //list to keep the authentication schemas
     List<AuthenticationSchema> authenticationSchemas = null;
 
     private static final Log logger = LogFactory.getLog(SCIMConfigProcessor.class);
+
+    private SCIMConfigProcessor() {
+
+    }
 
     public Map<String, String> getProperties() {
         return properties;

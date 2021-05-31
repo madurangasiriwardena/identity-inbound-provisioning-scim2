@@ -140,7 +140,7 @@ public class SCIMUserManager implements UserManager {
     private static final String ERROR_CODE_INVALID_CREDENTIAL_DURING_UPDATE = "36001";
     private static final String ERROR_CODE_PASSWORD_HISTORY_VIOLATION = "22001";
     private static final Log log = LogFactory.getLog(SCIMUserManager.class);
-    private AbstractUserStoreManager carbonUM;
+    private final AbstractUserStoreManager carbonUM;
     private ClaimManager carbonClaimManager;
     private String tenantDomain;
     private ClaimMetadataManagementService claimMetadataManagementService;

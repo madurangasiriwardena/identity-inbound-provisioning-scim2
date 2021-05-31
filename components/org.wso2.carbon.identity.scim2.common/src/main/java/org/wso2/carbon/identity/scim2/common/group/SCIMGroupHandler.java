@@ -20,6 +20,7 @@ package org.wso2.carbon.identity.scim2.common.group;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.osgi.service.component.annotations.Reference;
 import org.wso2.carbon.identity.scim2.common.DAO.GroupDAO;
 import org.wso2.carbon.identity.scim2.common.exceptions.IdentitySCIMException;
 import org.wso2.carbon.identity.scim2.common.utils.SCIMCommonUtils;
@@ -44,7 +45,7 @@ import java.util.UUID;
  */
 public class SCIMGroupHandler {
     private static final Log logger = LogFactory.getLog(SCIMGroupHandler.class);
-    private int tenantId;
+    private final int tenantId;
 
     /**
      * Always use this constructor and pass tenant Id.

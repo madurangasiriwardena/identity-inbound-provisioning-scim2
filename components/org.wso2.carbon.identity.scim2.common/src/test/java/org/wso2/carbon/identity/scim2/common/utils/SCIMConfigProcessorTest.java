@@ -55,8 +55,8 @@ public class SCIMConfigProcessorTest {
     }
 
     @BeforeMethod
-    public void setUp() throws Exception {
-        scimConfigProcessor = new SCIMConfigProcessor();
+    public void setUp() {
+        scimConfigProcessor = SCIMConfigProcessor.getInstance();
 
         scimConfigProcessor.properties.put("Name", "SCIM2");
         scimConfigProcessor.properties.put("Age", "24");
@@ -73,8 +73,14 @@ public class SCIMConfigProcessorTest {
     }
 
     @Test
-    public void testGetProperties() throws Exception {
-        Map<String, String> expected = new HashMap<String, String>();
+    public void testGetInstance() {
+
+        assertNotNull(scimConfigProcessor);
+    }
+
+    @Test
+    public void testGetProperties() {
+        Map<String, String> expected = new HashMap<>();
         expected.put("Name", "SCIM2");
         expected.put("Age", "24");
 
@@ -85,12 +91,12 @@ public class SCIMConfigProcessorTest {
     }
 
     @Test(dataProvider = "propertyProvider")
-    public void testGetProperty(String property, String expectedResult) throws Exception {
+    public void testGetProperty(String property, String expectedResult) {
         assertEquals(scimConfigProcessor.getProperty(property), expectedResult);
     }
 
     @Test
-    public void testGetAuthenticationSchemas() throws Exception {
+    public void testGetAuthenticationSchemas() {
         List<AuthenticationSchema> authenticationSchemaList = scimConfigProcessor.getAuthenticationSchemas();
         for (AuthenticationSchema authenticationSchema1 : authenticationSchemaList) {
             assertEquals(authenticationSchema1.getName(), authenticationSchema.getName());
@@ -113,11 +119,5 @@ public class SCIMConfigProcessorTest {
                 "charon-config-test.xml").toString();
         scimConfigProcessor.buildConfigFromFile(filePath);
 
-    }
-
-    @Test
-    public void testGetInstance() throws Exception {
-        SCIMConfigProcessor scimConfigProcessor1 = scimConfigProcessor.getInstance();
-        assertNotNull(scimConfigProcessor1);
     }
 }

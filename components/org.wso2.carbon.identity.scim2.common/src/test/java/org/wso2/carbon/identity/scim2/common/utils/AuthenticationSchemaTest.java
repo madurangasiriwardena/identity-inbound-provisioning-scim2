@@ -38,7 +38,7 @@ public class AuthenticationSchemaTest {
     private AuthenticationSchema authenticationSchema;
 
     @BeforeMethod
-    public void setUp() throws Exception {
+    public void setUp() {
         authenticationSchema = new AuthenticationSchema();
         Map<String, String> properties = new HashMap<>();
         properties.put("name", dummyName);
