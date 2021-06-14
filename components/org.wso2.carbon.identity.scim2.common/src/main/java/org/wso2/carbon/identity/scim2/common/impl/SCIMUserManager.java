@@ -2329,12 +2329,12 @@ public class SCIMUserManager implements UserManager {
     }
 
     @Override
-    public User getMe(String userName,
+    public User getMe(String userId,
                       Map<String, Boolean> requiredAttributes) throws CharonException, NotFoundException {
 
-        diagnosticLog.info("Retrieving the current authenticated user via SCIM Me endpoint. Username: " + userName);
+        diagnosticLog.info("Retrieving the current authenticated user via SCIM Me endpoint. User id: " + userId);
         if (log.isDebugEnabled()) {
-            log.debug("Getting user: " + userName);
+            log.debug("Getting user: " + userId);
         }
 
         User scimUser;
@@ -2354,16 +2354,16 @@ public class SCIMUserManager implements UserManager {
                 requiredClaimsInLocalDialect = new ArrayList<>();
             }
 
-            org.wso2.carbon.user.core.common.User coreUser = carbonUM.getUser(null, userName);
+            org.wso2.carbon.user.core.common.User coreUser = carbonUM.getUser(userId, null);
 
             // We assume (since id is unique per user) only one user exists for a given id.
             scimUser = this.getSCIMUser(coreUser, requiredClaimsInLocalDialect, scimToLocalClaimsMap, null);
 
             if (scimUser == null) {
                 if (log.isDebugEnabled()) {
-                    log.debug("User with userName : " + userName + " does not exist in the system.");
+                    log.debug("User with user id : " + userId + " does not exist in the system.");
                 }
-                diagnosticLog.error("User with userName : " + userName + " does not exist in the system.");
+                diagnosticLog.error("User with user id : " + userId + " does not exist in the system.");
                 throw new NotFoundException("No such user exist");
             } else {
                 // Set the schemas of the scim user.
